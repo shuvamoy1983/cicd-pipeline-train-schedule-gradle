@@ -13,7 +13,7 @@ pipeline {
             stage('gradle build') {
               echo 'executing gradle'
                 withGradle() {
-                sg './gradlew -v '
+                sh './gradlew -v'
                 }
         }
          }
