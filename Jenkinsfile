@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'train/dist/trainSchedule.zip'
+                archiveArtifacts artifacts: 'test/trainSchedule.zip'
             }
         }
         
@@ -27,8 +27,8 @@ pipeline {
                                 ], 
                                 transfers: [
                                     sshTransfer(
-                                        sourceFiles: 'train/dist/trainSchedule.zip',
-                                        removePrefix: 'dist/',
+                                        sourceFiles: 'test/trainSchedule.zip',
+                                        removePrefix: 'test/',
                                         remoteDirectory: '/tmp',
                                         execCommand: 'sudo unzip /tmp/trainSchdule.zip -d /opt/train-schedule &&  sudo /usr/bin/systemctl start train-schedule'
                                         
