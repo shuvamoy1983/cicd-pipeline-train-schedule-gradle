@@ -28,7 +28,7 @@ pipeline {
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: '/var/lib/jenkins/workspace/train/dist/trainSchedule.zip',
-                                        removePrefix: 'dist/',
+                                        removePrefix: 'var/lib/jenkins/workspace/train/dist/',
                                         remoteDirectory: '/tmp',
                                         execCommand: 'sudo unzip /tmp/trainSchdule.zip -d /opt/train-schedule &&  sudo /usr/bin/systemctl start train-schedule'
                                         
