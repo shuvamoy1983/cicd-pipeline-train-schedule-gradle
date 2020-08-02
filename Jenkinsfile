@@ -4,10 +4,19 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+                nodejs('Node-14.7') {
+                sh 'yarn install'
+                } 
             }
         }
+         stages {
+            stage('gradle build') {
+              echo 'executing gradle'
+                withGradle() {
+                sg './gradlew -v '
+                }
+        }
+         }
         }
     }
 
