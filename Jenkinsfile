@@ -9,8 +9,8 @@ pipeline {
                 } 
             }
         }
-         stages {
-            stage('gradle build') {
+         stage('gradle build') {
+            steps {
               echo 'executing gradle'
                 withGradle() {
                 sh './gradlew -v'
