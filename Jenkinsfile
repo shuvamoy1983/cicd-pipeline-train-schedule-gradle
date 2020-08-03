@@ -27,7 +27,7 @@ node {
                                         sourceFiles: '/dist/algo.zip',
                                         removePrefix: 'dist/',
                                         remoteDirectory: '/tmp',
-                                        execCommand: 'unzip /tmp/algo.zip -d /home/cloud_user/'
+                                        execCommand: 'unzip tmp/algo.zip -d /home/cloud_user/'
                                         
                                     )
                                 ]
